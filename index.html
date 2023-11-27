@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <title>
+    Portfolio Website
+  </title>
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+    }
+
+    body {
+      color: white;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 10%;
+      background: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 25px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .headerBar a {
+      font-size: 18px;
+      color: white;
+      font-weight: 500px;
+      margin-left: 35px;
+      transition: .3px;
+      top: 0;
+    }
+
+    .headerBar a:hover,
+    .headerBar a.main {
+      color: #00abf0;
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      padding: 0 10%;
+      background: url('https://moewalls.com/wp-content/uploads/2023/09/anonymous-thumb.jpg') no-repeat;
+      background-size: cover;
+    }
+
+    .home-content {
+      background-color: transparent;
+      max-width: 600px;
+    }
+
+    .home-content h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .home-content h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #00abf0
+    }
+
+    .home-content p {
+      font-size: 18px;
+      margin: 20px 0 40px;
+    }
+
+    .home-content .actionCall {
+      width: 345px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .actionCall a {
+      width: 150px;
+      height: 100%;
+      color: #ededed;
+      background: #00abf0;
+      border: 1px solid #ededed;
+      border-radius: 10px;
+      display: inline-flex;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    /* BUTTON STYLING */
+    .btn-box {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #0ef;
+      border-radius: 40px;
+      font-size: 16px;
+      color: #081b29;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ABOUT ME SECTION STYLING */
+    .About {
+      width: 100%;
+    }
+
+    .About {
+      display: grid;
+      background-color: #303f46;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(450px, auto));
+      align-items: center;
+      
+      color: #FFFFFF;
+      padding-right: 5%;
+      padding-top: 100px;
+    }
+
+    .profile-pic img {
+      padding-bottom: 10%;
+      max-width: 500px;
+      height: 600;
+      width: 600;
+      border-radius: 5%;
+      padding-left: 20%;
+      padding-right: 15%;
+    }
+
+    .About-content h2 {
+      font-size: 60px;
+      color: #FFFFFF;
+      padding-right: 5%
+    }
+
+    .About-content h2 span {
+      color: #0ef;
+      
+    }
+
+    .About-content h4 {
+      font-size: 29px;
+      font-weight: 600;
+      color: #FFF;
+      line-height: 1.7;
+      margin: 15px 0 30px;
+      padding-right: 5%
+    }
+
+    .About-content p {
+      width: 100%;
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 4rem;
+      padding-right: 5%
+    }
+
+    .About-content {
+      padding-bottom: 100px;
+    }
+
+    /* Contact Page STYLING */
+    .contact {
+      padding-top: 4%;
+      padding-bottom: 4%;
+      display: grid;
+      background-color: #303f46;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 3rem;
+      padding-left: 30px;
+      color: #FFFFFF
+    }
+
+    .contact-headings h2 {
+      font-size: 90px;
+      line-height: 1;
+      text-align: center;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+    }
+
+    .contact-headings h2 span {
+      color: #0ef
+    }
+
+    .contact-headings h4 {
+      margin: 20px 0;
+      color: #FFFFFF;
+      font-size: 20px;
+      line-height: 30x;
+      margin-bottom: 2rem;
+    }
+
+    .contact-headings p {
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 2rem;
+    }
+
+    .contacts {
+      margin-bottom: 3rem;
+    }
+
+    .contacts li {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .contacts li {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .contacts i {
+      display: inline-block;
+      color: #0ef;
+      font-size: 20px;
+      font-weight: 600;
+      transition: all .40s ease;
+    }
+
+    .contact-icons i {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 2px solid #0ef;
+      border-radius: 50%;
+      font-size: 20px;
+      color: #0ef;
+      text-decoration: none;
+      margin: 30px 15px 30px 0;
+    }
+
+    .form form {
+      position: relative;
+    }
+
+    .form form input,
+    form textarea {
+      border: none;
+      outline: none;
+      width: 90%;
+      padding: 18px;
+      background: #555557;
+      color: #000;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .form form .send {
+      display: inline-block;
+      padding: 14px 60px;
+      background: #0ef;
+      border-radius: 40px;
+      font-size: 18px;
+      color: #081b29;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form textarea {
+      resize: none;
+      height: 220px;
+    }
+
+    /* PROJECT STYLING SHEET */
+    .Project {
+      background: #1d262a;
+      width: 100%;
+      height: 100%;
+      padding-right: 100px;
+      padding-left: 100px;
+      padding-bottom: 100px;
+      padding-top: 100px;
+    }
+
+    .center-text h2 {
+      font-size: 60px;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .center-text h2 span {
+      color: #0ef;
+    }
+
+    .Project-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+      align-items: center;
+      gap: 2.3rem;
+      margin-top: 4.2rem;
+      color: #FFFFFF;
+    }
+
+    .box {
+      padding: 80px 40px 66px;
+      background: #2d343f;
+      border-radius: 28px;
+      border: 1px solid transparent;
+      box-shadow: 0 0 5px #0ef;
+      transition: all .50s ease;
+      cursor: pointer;
+    }
+
+    .box img {
+      margin-bottom: 20px;
+    }
+
+    .box h3 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .box p {
+      font-size: 15px;
+      font-weight: 400;
+      color: #cccccc;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+
+    .box a {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 1.273em;
+      font-weight: 700;
+      padding: 7px 0;
+      color: #F0EFE7;
+    }
+
+    .box i {
+      vertical-align: middle;
+      font-size: 25px;
+      color: #0ef;
+      margin-left: 5px;
+    }
+
+    .box:hover {
+      border: 1px solid #FFFFFF;
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    /* SKILLS STYLING */
+    .Skills {
+      background-color: #303f46;
+      color: #FFFFFF;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    .Skills h2 {
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      font-size: 60px;
+    }
+
+    .Skills h2 span {
+      color: #0ef;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      grid-gap: 1rem;
+      padding: 1rem 80px;
+      font-size: 1.2rem;
+    }
+
+    .skill-box {
+      padding: 1rem;
+      color: #ddd;
+      cursor: pointer;
+    }
+
+    .skill-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skills-icon {
+      width: 50px;
+    }
+
+    .img {
+      width: 90px;
+      height: 90px;
+      position: relative;
+      border-radius: 45px;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skill-title h3 {
+      margin: 0.5rem;
+    }
+
+    @media screen and (max-width: 990px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 50px;
+      }
+    }
+
+    @media screen and (max-width: 650px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* WORK EXPERIENCE STYLING*/
+    .Experience .experience-container .experience-box {
+      width: 100%;
+    }
+
+    .Experience {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      background: #1d262a;
+      color: #FFFFFF;
+    }
+
+    .Experience h2 {
+      font-size: 60px;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .Experience h2 span {
+      color: #0ef;
+    }
+
+    .Experience .experience-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      padding-left: 3rem;
+    }
+
+    .Experience .experience-container .experience-box {
+      width: 27rem;
+      margin: 4rem 1rem;
+      padding-left: 4rem;
+      border-left: .2rem solid #fff;
+      position: relative;
+    }
+
+    .Experience .experience-container .experience-box span {
+      font-size: 1.3rem;
+      background: #787c79;
+      border-radius: 5rem;
+      padding: 0.5rem 2.5rem;
+      color: black;
+    }
+
+    .Experience .experience-container .experience-box h3 {
+      font-size: 1.5rem;
+      padding-top: 1.5rem;
+    }
+
+    .Experience .experience-container .experience-box h4 {
+      font-size: 1.4rem;
+      padding-top: 1.5rem;
+    }
+
+    .Experience .experience-container .experience-box p {
+      font-size: 1.2rem;
+      padding-top: 1.5rem;
+      color: #cccccc;
+    }
+
+    .Experience .experience-container .experience-box i {
+      position: absolute;
+      top: -1.5rem;
+      left: -2.5rem;
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+      line-height: 5rem;
+      text-align: center;
+      font-size: 2rem;
+      background: #0ef;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="#" class="logo"> Aadi. </a>
+
+    <nav class="headerBar">
+      <a href="#" class="main">Home</a>
+      <a href="#About">About</a>
+      <a href="#Project">Projects</a>
+      <a href="#Skills">Skills</a>
+      <a href="#Experience">Experience</a>
+    </nav>
+  </header>
+
+  <section class="home">
+    <div class="home-content">
+      <h1> Hello, My name is Aadit Meenege</h1>
+      <h3> Software Engineer </h3>
+      <p> "Experience does for the soul what education does for the mind" is a quote that has always inspired me to seek out new challenges and opportunities to grow both personally and professionally. </p>
+      <div class="actionCall">
+        <a href="#contact">Contact Me!</a>
+
+        <a href="#" onclick="window.open('https://www.linkedin.com/in/aadit-meenege-69b6321b4/')"> Resume! </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="About" id="About">
+    <div class="profile-pic">
+      <img src="https://media.licdn.com/dms/image/D5603AQFkrTyzifhwcg/profile-displayphoto-shrink_800_800/0/1693017996016?e=1706745600&v=beta&t=tM5gEV-8s1RtIxj23k17kc7L8apxlYvwHct1tSE_9_4" alt=>
+
+    </div>
+
+    <div class="About-content">
+      <h2> About <span> Me </span> </h2>
+      <h4> Computer Science Major at UTD </h4>
+      <p> I'm a UTD computer science student with a passion for coding. Currently exploring new opportunities in software engineering world of technologies, I'm excited to bring my unique blend of creativity and technical skills to projects that push boundaries. Let's connect and explore the possibilities!
+      </p>
+
+      <a href="#Experience" class="btn-box"> Learn More! </a>
+
+    </div>
+
+  </section>
+
+  <section class="Project" id="Project">
+
+    <div class="center-text">
+
+      <h2> My <span> Projects </span> </h2>
+
+    </div>
+
+    <div class="Project-content" id="Project-content">
+
+      <div class="box">
+
+        <img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png" alt="company-1" width="75" height="75">
+        <h3> Weather API App </h3>
+        <p> Application Programming Interface that allows weather data to be queried from scripts and code. Good weather APIs provide both historical weather data and forecast data via an easy-to-use, well-defined programming interface.</p>
+        <a href="#" onclick="window.open('https://www.linkedin.com/in/aadit-meenege-69b6321b4/')">
+          Open Now
+          <i class="bx bx-download bx-tada"></i>
+        </a>
+
+      </div>
+
+      <div class="box">
+
+        <img src="https://logos.flamingtext.com/Word-Logos/games-design-fluffy-name.png" alt="company-3" width="75" height="75">
+        <h3> WordGame Interface </h3>
+        <p> A gaming interface in java that allows players compete to form, guess, or change words according to a set of rules. Improving memory, and enhancing social connections while incorporating multiple threads, validation and AI.
+        </p>
+        <a href="#" onclick="window.open('https://github.com/rishimeka/wordGame')">
+          Open Now
+          <i class="bx bx-download bx-tada"></i>
+        </a>
+
+      </div>
+
+      <div class="box">
+
+        <img src="https://uploads-ssl.webflow.com/61bcfa6e82d1a9800fdaddf3/646e69e710f5841de620c7dd_new-relic-logo-E7CC1E9143-seeklogo.com.png" alt="company-2" width="75" height="75">
+        <h3> Security with Okta </h3>
+        <p> This is currently an ongoing project. But will consist of a static website created in pelican/python to display internal security publications with Okta security authentication. Help remove the access of VPN and ease responsiveness time. </p>
+        <a href="#" onclick="window.open('https://newrelic.com/security')">
+          Open Now
+          <i class="bx bx-download bx-tada"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="Skills" id="Skills">
+
+    <h2> My <span> Skills </span> </h2>
+
+    <div class="container">
+
+      <div class="skill-box">
+        <div class="skill-title">
+          <div class="img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTElNlfrbYQkhkHYjjlt5ol2o2vswz3J1Iw&usqp=CAU" class="skills-icon" alt="skills">
+          </div>
+          <h3> Java </h3>
+        </div>
+        <p> Created algorithms and designed previous projects in java.</p>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-title">
+          <div class="img">
+            <img src="https://cms.azure.styava.dev/api/assets/styavacommunities/092f9741-4c89-4cd4-aac9-9b3ca76a2bf5/javascript-39395.png" class="skills-icon" alt="skills">
+          </div>
+          <h3> JavaScript </h3>
+        </div>
+        <p> Designed websites for cloud platform to present data. </p>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-title">
+          <div class="img">
+            <img src="https://thequantuminsider.com/wp-content/uploads/2020/08/aws-logo.png" class="skills-icon" alt="skills">
+          </div>
+          <h3> AWS </h3>
+        </div>
+        <p> AWS cloud practitioner certificate demonstrates cloud functionality. </p>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-title">
+          <div class="img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/640px-Python-logo-notext.svg.png" class="skills-icon" alt="skills">
+          </div>
+          <h3> Python </h3>
+        </div>
+        <p> Utilized for AI/ML projects to analyze data in graphical representation. </p>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-title">
+          <div class="img">
+            <img src="https://www.lambdatest.com/blog/wp-content/uploads/2018/11/JPG-2.jpg" class="skills-icon" alt="skills">
+          </div>
+          <h3> HTML/CSS </h3>
+        </div>
+        <p> Constructed websites to attract and showcase resume portfolio </p>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-title">
+          <div class="img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" class="skills-icon" alt="skills">
+          </div>
+          <h3> SQL </h3>
+        </div>
+        <p> Brief understanding for Oracle database to filter through data </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="Experience" id="Experience">
+
+    <h2> Work <span> Journey </span> </h2>
+
+    <div class="experience-container">
+
+      <div class="experience-box">
+        <i class="bx bxs-briefcase"></i>
+        <span> 2023 </span>
+        <h3> Oracle | Analytics </h3>
+        <h4> Software Engineer Intern </h4>
+        <p>
+
+        <ul>
+          <li> Built a dependency tree feature in the Fusion Analytics customization component to improve data visualization that allows customers to customize the semantics model and extend it for the business requirements. </li>
+          <li>Created REST end point for semantic model and an algorithm to fetch dependent steps for a parent step in a customization branch. Collate the results in a hierarchical format to display in front end.</li>
+          <li>Collaborated cross-functionally with product and engineering teams to execute requirements and plan architectural designs while following Agile SDLC practices</li>
+        </ul>
+
+        </p>
+      </div>
+
+      <div class="experience-box">
+        <i class="bx bxs-briefcase"></i>
+        <span> 2022 </span>
+        <h3> New Relic | AppSec </h3>
+        <h4> Security Engineer Intern </h4>
+        <p>
+
+        <ul>
+          <li> Synchronized security standards publication by 80% across multiple development environments in Python to enable easy access by all employees using AWS, Cloudfront, and Terraform </li>
+          <li>Created and demoed a dashboard for the indie game developer community to help customers easily onboard and maximize product value</li>
+          <li>Conducted penetration testing using Burp Suite on a recently launched product feature to validate security requirements</li>
+          <li>Inventoried 20 existing security tooling to document system owners and use case coverage to enable future gap analysis and reconciliation</li>
+        </ul>
+
+        </p>
+      </div>
+
+      <div class="experience-box">
+        <i class="bx bxs-briefcase"></i>
+        <span> 2020 </span>
+        <h3> ACM - HackUTD </h3>
+        <h4> Industry Coordinator </h4>
+        <p>
+
+        <ul>
+          <li>Led 10+ workshops for 700+ participants by planning with sponsors, campus recruiters, and organization leadership</li>
+          <li>Built and maintained long term communications with fortune 500 firms, to document and utilize feedback in next iterations</li>
+          <li> Reach out to companies and recruiters to support campus wide hackathon events across Univeristy of Texas at Dallas (largest hackathon in North Texas).
+          </li>
+
+          <li> Sponsors: Capital One, State Farm, EOG, Toyota, Goldman Sachs, CBRE, Ring Central, L3Harris, Ring Central
+          </li>
+
+        </ul>
+
+        </p>
+      </div>
+
+      <div class="experience-box">
+        <i class="bx bxs-briefcase"></i>
+        <span> 2018 </span>
+        <h3> PacCore Software Services </h3>
+        <h4> Software Developer Intern </h4>
+        <p>
+
+        <ul>
+          <li>Created a customer-facing UI using Angular framework to help track and communicate client information </li>
+          <li>Assisted in development and testing of new Escrow Administration software modules in C# and ASP .net</li>
+          <li>Strategized and tracked defects, documented bugs and provided summary reports to the clients</li>
+          <li> Managed Jira tasks and edited confluence wiki with progress updates.
+          </li>
+          <li>
+            Developed a multistage pipeline using CI/CD to perform automated tasks such as building, and testing the project.
+          </li>
+        </ul>
+
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <div class="contact-headings">
+      <h2> Contact <span> ME </span> </h2>
+      <h4> Let's Work Together! </h4>
+
+      <p> Unlock the software engineering potential - reach out to me for future development experience. Bringing innovation and functionality on the digital journey! </p>
+
+      <div class="contacts">
+        <li> <i class="bx bxs-envelope"> </i> aadit.mee123@gmail.com</li>
+        <li> <i class="bx bxs-school"> </i> arm190013@utdallas.edu</li>
+      </div>
+
+      <div class="contact-icons">
+        <a href="" onclick="window.open('https://github.com/aadit-meenege123')"> <i class="bx bxl-github"></i> </a>
+        <a href="" onclick="window.open('https://mail.google.com/mail/u/0/#inbox?compose=new')"> <i class="bx bx-envelope"></i> </a>
+        <a href="" onclick="window.open('https://www.linkedin.com/in/aadit-meenege-69b6321b4/')"> <i class="bx bxl-linkedin"> </i> </a>
+
+      </div>
+
+    </div>
+
+    <div class="form">
+
+      <form action="">
+        <input type="" placeholder="Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="" placeholder="Subject" required>
+        <textarea name="" id="" cols="40" rows="10" placeholder="Enter Message" required> </textarea>
+
+        <input type="submit" value="submit" class="send">
+      </form>
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>
